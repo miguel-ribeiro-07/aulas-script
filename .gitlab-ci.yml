@@ -10,6 +10,7 @@ first-job:
   stage: build
   # What to run on the job.
   script:
+    - cd Aula_01
     - npm install
   artifacts:
     paths:
