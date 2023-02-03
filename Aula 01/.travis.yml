@@ -1,15 +1,6 @@
-sudo: false
-
 language: node_js
-
 node_js:
-  - node
+ - "node"
 
-install:
-  - npm ci
-  - npm express
-
-notification:
-  email: false
 
 
