@@ -20,8 +20,7 @@ second-job:
   stage: run
   script:
     - cd Aula_01
-    - npm run start
-    - node test.js
+    - npm test
   artifacts:
     paths:
       - node_modules/
