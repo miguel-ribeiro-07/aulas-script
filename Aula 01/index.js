@@ -16,4 +16,4 @@ app.get("/teste", () => {
 //Criando uma rota de teste com HTML
 app.get("/testeComHTML", (req, res) => {
   res.send("<h1>Server ativo</h1>");
-});
+}); 
