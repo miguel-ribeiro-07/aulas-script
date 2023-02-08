@@ -5,7 +5,7 @@ stages:
   - run
 
 # Job's name
-first-job:
+aula01_1-job:
   # Define stage
   stage: build
   # What to run on the job.
@@ -16,12 +16,32 @@ first-job:
     paths:
       - Aula_01/node_modules
 
-second-job:
+aula01_2-job:
   stage: run
   script:
-    - cd Aula_01
+    - cd Aula_02
     - npm test
   artifacts:
     paths:
       - node_modules/
 
+# Job's name
+aula02_1-job:
+  # Define stage
+  stage: build
+  # What to run on the job.
+  script:
+    - cd Aula_02
+    - npm install
+  artifacts:
+    paths:
+      - Aula_02/node_modules
+
+aula02_2-job:
+  stage: run
+  script:
+    - cd Aula_02
+    - npm test
+  artifacts:
+    paths:
+      - node_modules/
