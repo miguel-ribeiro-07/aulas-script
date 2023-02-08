@@ -24,7 +24,5 @@ app.post("/testeGETHTML", (req, res) => {
   console.log(name);
   nomes.push(name);
 
-  return res.send(`<h1>${[nomes]}</h1>`)
+  return res.send(`<h1>${[nomes]}</h1>`);
 });
-
-
