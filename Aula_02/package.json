@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jshint index.js",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +18,7 @@
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "jshint": "^2.13.6"
   }
 }
