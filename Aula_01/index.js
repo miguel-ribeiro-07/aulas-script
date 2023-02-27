@@ -17,3 +17,4 @@ app.get("/teste", () => {
 app.get("/testeComHTML", (req, res) => {
   res.send("<h1>Server ativo</h1>");
 }); 
+
