@@ -60,7 +60,7 @@ FROM Clientes c
 INNER JOIN Pedidos p ON c.ID_Cliente = p.ID_Cliente;
 
 -- Selecione o nome do produto, o preço e a quantidade
--- de cada item de pedido feito em um pedido.
+-- de cada item do pedido feito em um pedido.
 SELECT pr.Nome_Produto, pr.Preco_Produto, ip.Quantidade
 FROM ItensPedidos ip
 INNER JOIN Produtos pr ON pr.ID_Produto = ip.ID_Produto;

@@ -20,6 +20,7 @@ app.get('/alunos', async (req, res) => {
   res.json(result.recordset);
 });
 
+
 app.listen(8080, () => {
   console.log('Servidor rodando na porta 8080');
 });
