@@ -1,51 +1,30 @@
-const express = require("express");
+const express = require("express")
 
-const app = express();
-
-app.use(express.json());
+const app = express()
 
 app.listen(8080, () => {
-  console.log("Server ativo na porta 8080");
-});
+  console.log("O server está ativo na porta 8080")
+})
 
-const { connect, sql } = require("./db");
+app.use(express.json())
 
-app.post("/Clientes", async (req, res) => {
+const {connect, sql} = require('./data/database')
+
+app.post('/Aluno', async (req, res) =>{
   try {
-    await connect();
+    await connect()
 
-    const { id, nome, email } = req.body;
+    const {id, nome, idade} = req.body;
 
-    const result = await sql.query(
-      `INSERT INTO Clientes (ID_Cliente, Nome, email) VALUES (${id},'${nome}', '${email}')`
-    );
+    const result = await sql.query(`INSERT INTO Aluno (ID, Nome, Idade)
+     VALUES (${id}, ${nome}, ${idade})`)
 
-    res.send("Contato cadastrado com sucesso");
+     res.send("Cadastro realizado com sucesso!")
   } catch (err) {
-    console.error(err);
-    res.status(500).send("Erro interno");
-  } finally {
-    await sql.close();
+    console.log(err);
+    res.status(500).send("Erro interno")
+  } finally{
+    await sql.close()
   }
-});
 
-app.get("/todosClientes", async (req, res) => {
-  try {
-    await connect();
-
-    const result = await sql.query("SELECT * FROM Clientes");
-
-    const rows = result.recordset.map(({ ID_Cliente, Nome, email }) => ({
-      ID_Cliente,
-      Nome,
-      email,
-    }));
-
-    console.table(rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Erro interno");
-  } finally {
-    await sql.close();
-  }
-});
+})
